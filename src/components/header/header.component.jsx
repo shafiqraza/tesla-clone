@@ -9,16 +9,14 @@ import {
   HeaderMenu,
 } from "./header.styles";
 
-import logo from "../../images/logo.svg";
+import logo from "../../images/logo.png";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 
 const Header = ({ isMenuOpen, toggleIsMenuOpen }) => (
   <HeaderContainer>
-    <LogoContainer>
-      <Link to="/">
-        <LogoImg src={logo} alt="tesla logo" />
-      </Link>
+    <LogoContainer to="/">
+      <LogoImg src={logo} alt="tesla logo" />
     </LogoContainer>
     <HeaderLinks>
       <Link to="/">Model S</Link>

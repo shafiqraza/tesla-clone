@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 const BasisLinkStyles = css`
   text-decoration: none;
@@ -14,14 +15,14 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  padding-top: 20px;
+  padding-top: 15px;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
   & a {
     height: 100%;
     width: 100%;
