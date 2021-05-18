@@ -7,7 +7,6 @@ const BasisLinkStyles = css`
   font-weight: 600;
   color: #000;
   text-transform: uppercase;
-  letter-spacing: 1px;
   word-spacing: 2px;
 `;
 
