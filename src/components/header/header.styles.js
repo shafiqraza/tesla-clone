@@ -14,7 +14,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  padding-top: 15px;
+  padding-top: 20px;
   position: sticky;
   top: 0;
   left: 0;
@@ -57,4 +57,8 @@ export const HeaderRight = styled.div`
 
 export const HeaderMenu = styled.div`
   cursor: pointer;
+  z-index: 2;
+  position: relative;
+  & .toggleMenu {
+  }
 `;
