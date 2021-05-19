@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 const BasisLinkStyles = css`
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  color: #000;
+  color: #333;
   text-transform: uppercase;
-  word-spacing: 2px;
+  // word-spacing: 2px;
+  display: inline-block;
 `;
 
 export const HeaderContainer = styled.div`
@@ -29,7 +30,9 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const LogoImg = styled.img`
-  width: 90px;
+  width: 100px;
+  height: 24px;
+  fill: #000;
   flex: 1;
   object-fit: contain;
   margin-right: 100px;
@@ -37,6 +40,7 @@ export const LogoImg = styled.img`
 
 export const HeaderLinks = styled.div`
   display: flex;
+  align-items: flex-start;
   gap: 15px;
 
   & a {
@@ -46,6 +50,7 @@ export const HeaderLinks = styled.div`
 
 export const HeaderRight = styled.div`
   display: flex;
+  align-items: flex-start;
   gap: 15px;
 
   & a {

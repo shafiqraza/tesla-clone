@@ -5,7 +5,7 @@ export const MenuContainer = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: #eee;
+  background: #fff;
   padding: 70px 20px 20px 20px;
   min-width: 300px;
   display: flex;

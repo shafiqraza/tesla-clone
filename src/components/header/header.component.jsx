@@ -9,7 +9,7 @@ import {
   HeaderMenu,
 } from "./header.styles";
 
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 
