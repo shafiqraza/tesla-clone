@@ -1,21 +1,5 @@
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 import bgImage from "../../images/model-s.jpg";
-
-const buttonStyles = css`
-  width: 250px;
-  border-radius: 50px;
-  border: none;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 12px 0;
-  text-align: center;
-  display: inline-block;
-  background-color: rgba(23, 26, 32, 0.8);
-  color: rgba(255, 255, 255);
-`;
 
 export const HeaderBlockContainer = styled.div`
   position: absolute;
@@ -66,17 +50,4 @@ export const HeaderBlockButtons = styled.div`
   gap: 30px;
   // height: 30%;
   align-items: flex-end;
-`;
-
-export const HeaderBlockButton = styled.button`
-  ${buttonStyles}
-
-  ${(props) =>
-    props.invert &&
-    `
-    background-color:  rgba(255, 255, 255, .8);
-    color: rgba(23, 26, 32);
-    font-weight: 400;
-    font-size:12px;
-  `}
 `;

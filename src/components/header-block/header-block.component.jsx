@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import ButtonPrimary from "../button-primary/button-primary.component";
 import {
   HeaderBlockContainer,
   HeaderBlockInfo,
   HeaderBlockTitle,
   HeaderBlockSubTitle,
   HeaderBlockButtons,
-  HeaderBlockButton,
 } from "./header-block.styles";
 
 const HeaderBlock = () => {
@@ -20,8 +20,12 @@ const HeaderBlock = () => {
         </HeaderBlockSubTitle>
       </HeaderBlockInfo>
       <HeaderBlockButtons>
-        <HeaderBlockButton>custom order</HeaderBlockButton>
-        <HeaderBlockButton invert>existing inventory</HeaderBlockButton>
+        <ButtonPrimary isLink to="#">
+          custom order
+        </ButtonPrimary>
+        <ButtonPrimary invert="true" isLink to="#">
+          existing inventory
+        </ButtonPrimary>
       </HeaderBlockButtons>
     </HeaderBlockContainer>
   );

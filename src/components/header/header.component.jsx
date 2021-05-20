@@ -28,7 +28,7 @@ const Header = ({ isMenuOpen, toggleIsMenuOpen }) => (
     </HeaderLinks>
     <HeaderRight isMenuOpen={isMenuOpen}>
       <Link to="/">Shop</Link>
-      <Link to="/">Tesla Account</Link>
+      <Link to="/login">Tesla Account</Link>
       <HeaderMenu onClick={toggleIsMenuOpen}>
         {isMenuOpen ? (
           <CloseIcon className="toggleMenu" />
