@@ -8,8 +8,9 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 export const Title = styled.h1`
-  padding: 32px 0 8px 0;
+  padding: 25px 0 8px 0;
   width: 90%;
   font-size: 36px;
   align-self: center;
+  font-weight: 600;
 `;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const BasisLinkStyles = css`
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #333;
   text-transform: uppercase;

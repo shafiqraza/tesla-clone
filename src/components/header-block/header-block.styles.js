@@ -25,12 +25,13 @@ export const HeaderBlockTitle = styled.h1`
   font-size: 42px;
   color: #393c41;
   padding: 4px 0;
+  font-weight: 600;
 `;
 
 export const HeaderBlockSubTitle = styled.p`
   color: #5c5e62;
   padding-bottom: 20px;
-  font-size: 14px;
+  font-size: 15px;
 
   & a {
     border-bottom: 1px solid #5c5e62;

@@ -9,7 +9,7 @@ const buttonOrLinkStyles = css`
   outline: none;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   padding: 13px 0;
   text-align: center;

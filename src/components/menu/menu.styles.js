@@ -7,7 +7,7 @@ export const MenuContainer = styled.div`
   right: 0;
   background: #fff;
   padding: 70px 20px 20px 20px;
-  min-width: 300px;
+  min-width: 310px;
   display: flex;
   flex-direction: column;
   gap: 25px;
