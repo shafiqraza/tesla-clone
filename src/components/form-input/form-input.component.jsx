@@ -17,9 +17,9 @@ const FormInput = ({
       type={type}
       required={required}
       name={name}
-      value={value}
       id={id}
-      handleChange={handleChange}
+      value={value}
+      onChange={handleChange}
     />
   </Group>
 );
