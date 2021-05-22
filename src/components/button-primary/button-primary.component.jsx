@@ -8,6 +8,7 @@ const ButtonPrimary = ({
   to,
   formSubmitBtn,
   btnBordered,
+  invert,
 }) => {
   const history = useHistory();
   const handleClick = () => {
@@ -17,6 +18,7 @@ const ButtonPrimary = ({
   return (
     <Button
       type={type ? type : "button"}
+      invert={invert}
       formSubmitBtn={formSubmitBtn}
       btnBordered={btnBordered}
       isLink={isLink}

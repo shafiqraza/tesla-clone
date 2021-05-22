@@ -23,7 +23,7 @@ const HeaderBlock = () => {
         <ButtonPrimary isLink to="#">
           custom order
         </ButtonPrimary>
-        <ButtonPrimary invert="true" isLink to="#">
+        <ButtonPrimary invert isLink to="#">
           existing inventory
         </ButtonPrimary>
       </HeaderBlockButtons>
