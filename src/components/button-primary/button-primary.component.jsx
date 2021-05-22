@@ -1,13 +1,30 @@
 import React from "react";
 import { Button, ButtonLink } from "./button-primary";
+import { useHistory } from "react-router-dom";
+const ButtonPrimary = ({
+  children,
+  type,
+  isLink,
+  to,
+  formSubmitBtn,
+  btnBordered,
+}) => {
+  const history = useHistory();
+  const handleClick = () => {
+    if (isLink) history.push(to);
+  };
 
-const ButtonPrimary = ({ children, type, isLink, ...otherProps }) => {
-  return !isLink ? (
-    <Button type={type ? type : "button"} {...otherProps}>
+  return (
+    <Button
+      type={type ? type : "button"}
+      formSubmitBtn={formSubmitBtn}
+      btnBordered={btnBordered}
+      isLink={isLink}
+      to={to}
+      onClick={handleClick}
+    >
       {children}
     </Button>
-  ) : (
-    <ButtonLink {...otherProps}>{children}</ButtonLink>
   );
 };
 

@@ -4,6 +4,7 @@ import HeaderBlock from "./components/header-block/header-block.component";
 import Header from "./components/header/header.component";
 import Menu from "./components/menu/menu.component";
 import Login from "./pages/login/login.component";
+import SignUp from "./pages/signup/signup.component";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
       </Switch>
     </div>

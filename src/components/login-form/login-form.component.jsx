@@ -61,7 +61,7 @@ const LoginForm = () => {
         value={user.password}
         handleChange={handleChange}
       />
-      <ButtonPrimary type="submit" signIn>
+      <ButtonPrimary type="submit" formSubmitBtn>
         Sign in
       </ButtonPrimary>
       <HelpText>

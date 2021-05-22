@@ -12,7 +12,7 @@ const Login = () => (
   <LoginContainer>
     <SignInAndSignUpHeader />
     <FormContainer title="Sign In">
-      <FormWrapper>
+      <FormWrapper usingIn="signIn">
         <LoginForm />
       </FormWrapper>
     </FormContainer>

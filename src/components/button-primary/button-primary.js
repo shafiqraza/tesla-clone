@@ -29,8 +29,8 @@ const buttonOrLinkStyles = css`
   `
       : ``}
 
-  ${({ signIn, signUp }) =>
-    signIn || signUp
+  ${({ formSubmitBtn }) =>
+    formSubmitBtn
       ? `
       background-color: #3e6ae1 ;
       color: #fff;
@@ -41,8 +41,8 @@ const buttonOrLinkStyles = css`
       `
       : ``}
 
-  ${({ gotoSignUp, gotoSignIn }) =>
-    gotoSignUp || gotoSignIn
+  ${({ btnBordered }) =>
+    btnBordered
       ? `
     border: 3px solid #000;
     background-color: transparent;
@@ -62,4 +62,18 @@ export const Button = styled.button`
 
 export const ButtonLink = styled(Link)`
   ${buttonOrLinkStyles}
+
+  ${({ btnBordered }) =>
+    btnBordered
+      ? `
+    border: 3px solid #000;
+    background-color: transparent;
+    color: #5c5e62;
+    &:hover {
+      background-color: #000;
+      color: #fff;
+
+    }
+  `
+      : ``};
 `;
