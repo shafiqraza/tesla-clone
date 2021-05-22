@@ -10,11 +10,19 @@ import {
   HelpTextDivider,
 } from "./login-form.styles";
 
+import { auth } from "../../firebase/firebase-utils";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../redux/user/user-slice";
+
 const LoginForm = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
@@ -22,7 +30,16 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form submited");
+    // auth
+    //   .signInWithEmailAndPassword(email, password)
+    //   .then((userAuth) => {
+    //     const { user } = userAuth;
+    //     dispatch(
+    //       signIn({ email: user.email, name: user.displayName, uid: user.uid })
+    //     );
+    //     history.push(".teslaaccount");
+    //   })
+    //   .catch((err) => console.log(`ERROR WHILE SIGIN - ${err.message}`));
   };
   return (
     <Form onSubmit={handleSubmit}>
