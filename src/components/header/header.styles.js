@@ -55,14 +55,11 @@ export const HeaderRight = styled.div`
 
   & a {
     ${BasisLinkStyles}
-
-    visibility: ${(props) => (props.isMenuOpen ? "hidden" : "visible")}
   }
 `;
 
 export const HeaderMenu = styled.div`
   cursor: pointer;
-  z-index: 2;
   position: relative;
   & .toggleMenu {
   }

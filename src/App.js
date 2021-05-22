@@ -9,15 +9,15 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleIsMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div className="App">
       <Switch>
         <Route path="/" exact>
-          <Header
-            isMenuOpen={isMenuOpen}
-            toggleIsMenuOpen={() => setIsMenuOpen(!isMenuOpen)}
-          />
-          {isMenuOpen && <Menu />}
+          <Header toggleIsMenuOpen={toggleIsMenuOpen} />
+          {isMenuOpen && <Menu toggleIsMenuOpen={toggleIsMenuOpen} />}
           <HeaderBlock></HeaderBlock>
         </Route>
         <Route path="/login">
