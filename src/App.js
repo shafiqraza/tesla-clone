@@ -5,6 +5,7 @@ import Header from "./components/header/header.component";
 import Menu from "./components/menu/menu.component";
 import Login from "./pages/login/login.component";
 import SignUp from "./pages/signup/signup.component";
+import TeslaAccount from "./pages/tesla-account/tesla-account.component";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/" exact>
-          <Header toggleIsMenuOpen={toggleIsMenuOpen} />
+          <Header isMenuOpen={isMenuOpen} toggleIsMenuOpen={toggleIsMenuOpen} />
           {isMenuOpen && <Menu toggleIsMenuOpen={toggleIsMenuOpen} />}
           <HeaderBlock></HeaderBlock>
         </Route>
@@ -25,6 +26,13 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUp />
+        </Route>
+        <Route path="/teslaaccount">
+          <TeslaAccount
+            isMenuOpen={isMenuOpen}
+            toggleIsMenuOpen={toggleIsMenuOpen}
+          />
+          {isMenuOpen && <Menu toggleIsMenuOpen={toggleIsMenuOpen} />}
         </Route>
       </Switch>
     </div>

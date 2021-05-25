@@ -19,6 +19,15 @@ const buttonOrLinkStyles = css`
   text-decoration: none;
   transition: 0.2s all;
 
+  ${({ medium }) =>
+    medium
+      ? `
+        min-width: 200px;
+        width: auto;
+        padding: 10px 20px;
+        font-size: 12px;`
+      : ``}
+
   ${(props) =>
     props.invert
       ? `
