@@ -28,29 +28,30 @@ const SignUpForm = () => {
     const { email, password, firstName, lastName } = user;
     const displayName = `${firstName} ${lastName}`;
 
-    // auth
-    //   .createUserWithEmailAndPassword(email, password)
-    //   .then((userAuth) => {
-    //     userAuth.user
-    //       .createProfile({
-    //         displayName,
-    //       })
-    //       .then(() => {
-    //         const { email, uid } = userAuth.user;
-    //         const { displayName } = dispatch(
-    //           signIn({
-    //             uid,
-    //             displayName,
-    //             email,
-    //           })
-    //         );
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        userAuth
+          .updateProfile({
+            displayName,
+          })
+          .then(() => {
+            const { email, uid } = userAuth.user;
+            console.log(userAuth.user);
+            const { displayName } = dispatch(
+              signIn({
+                uid,
+                displayName,
+                email,
+              })
+            );
 
-    //         history.push("teslaaccount");
-    //       });
-    //   })
-    //   .catch((err) => {
-    //     console.log(`ERROR WHILE SIGN UP - ${err.message}`);
-    //   });
+            history.push("teslaaccount");
+          });
+      })
+      .catch((err) => {
+        console.log(`ERROR WHILE SIGN UP - ${err.message}`);
+      });
   };
   return (
     <Form onSubmit={handleSubmit}>

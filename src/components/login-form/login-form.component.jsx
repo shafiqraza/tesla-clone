@@ -30,16 +30,16 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // auth
-    //   .signInWithEmailAndPassword(email, password)
-    //   .then((userAuth) => {
-    //     const { user } = userAuth;
-    //     dispatch(
-    //       signIn({ email: user.email, name: user.displayName, uid: user.uid })
-    //     );
-    //     history.push(".teslaaccount");
-    //   })
-    //   .catch((err) => console.log(`ERROR WHILE SIGIN - ${err.message}`));
+    auth
+      .signInWithEmailAndPassword(user.email, user.password)
+      .then((userAuth) => {
+        const { user } = userAuth;
+        dispatch(
+          signIn({ email: user.email, name: user.displayName, uid: user.uid })
+        );
+        history.push("/teslaaccount");
+      })
+      .catch((err) => console.log(`ERROR WHILE SIGIN - ${err.message}`));
   };
   return (
     <Form onSubmit={handleSubmit}>

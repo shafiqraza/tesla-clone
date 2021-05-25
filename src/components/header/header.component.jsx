@@ -29,7 +29,7 @@ const Header = ({ isMenuOpen, toggleIsMenuOpen }) => {
       </HeaderLinks>
       <HeaderRight isMenuOpen={isMenuOpen}>
         <Link to="/">Shop</Link>
-        <Link to="/login">Tesla Account</Link>
+        <Link to="/teslaaccount">Tesla Account</Link>
         <HeaderMenu onClick={toggleIsMenuOpen}>
           <MenuIcon className="toggleMenu" />
         </HeaderMenu>
