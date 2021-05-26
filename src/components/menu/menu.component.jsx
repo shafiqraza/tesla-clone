@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../../redux/menu/menu-slice";
+
 import MenuItem from "../menu-item/menu-item.component";
 import CloseIcon from "@material-ui/icons/Close";
 
@@ -9,7 +12,11 @@ import {
   CloseMenuIcon,
 } from "./menu.styles";
 
-const Menu = ({ toggleIsMenuOpen }) => {
+const Menu = () => {
+  const dispatch = useDispatch();
+  const toggleIsMenuOpen = () => {
+    dispatch(toggleMenu());
+  };
   return (
     <Container>
       <Backface onClick={toggleIsMenuOpen} />

@@ -1,4 +1,8 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleMenu } from "../../redux/menu/menu-slice";
+import { selectMenuIsOpen } from "../../redux/menu/menu-selectors";
+
 import { Link } from "react-router-dom";
 import {
   HeaderContainer,
@@ -12,8 +16,13 @@ import {
 import logo from "../../images/logo.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 
-const Header = ({ isMenuOpen, toggleIsMenuOpen }) => {
-  console.log(toggleIsMenuOpen);
+const Header = () => {
+  const dispatch = useDispatch();
+  const isMenuOpen = useSelector(selectMenuIsOpen);
+
+  const toggleIsMenuOpen = () => {
+    dispatch(toggleMenu());
+  };
   return (
     <HeaderContainer>
       <LogoContainer to="/">

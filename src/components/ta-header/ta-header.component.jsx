@@ -1,5 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../firebase/firebase-utils";
+import { signOut } from "../../redux/user/user-slice";
+import { selectMenuIsOpen } from "../../redux/menu/menu-selectors";
+import { toggleMenu } from "../../redux/menu/menu-slice";
 
 import {
   HeaderContainer,
@@ -12,12 +17,13 @@ import {
 import { ReactComponent as Logo } from "../../images/logo-white.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import { useDispatch } from "react-redux";
-import { auth } from "../../firebase/firebase-utils";
-import { signOut } from "../../redux/user/user-slice";
-
-const TeslaAccountHeader = ({ isMenuOpen, toggleIsMenuOpen }) => {
+const TeslaAccountHeader = () => {
   const dispatch = useDispatch();
+  const isMenuOpen = useSelector(selectMenuIsOpen);
+
+  const toggleIsMenuOpen = () => {
+    dispatch(toggleMenu());
+  };
   const logout = () => {
     auth
       .signOut()
