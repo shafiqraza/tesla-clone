@@ -1,34 +1,42 @@
 import styled from "styled-components/macro";
-import bgImage from "../../images/model-s.jpg";
 
-export const HeaderBlockContainer = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: url(${bgImage}) no-repeat;
+export const Container = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  background: url(${({ image }) => image}) no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: -2;
   display: grid;
   place-items: center;
 `;
 
-export const HeaderBlockInfo = styled.div`
+export const Content = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  // position: fixed;
+  // left: 50%;
+  // top: 30px;
+  // transform: translateX(-50%);
+  // opacity: 0;
+`;
+
+export const Info = styled.div`
   text-align: center;
   height: 300px;
   margin-top: 30px;
 `;
 
-export const HeaderBlockTitle = styled.h1`
+export const Title = styled.h1`
   font-size: 42px;
   color: #393c41;
   padding: 4px 0;
   font-weight: 600;
 `;
 
-export const HeaderBlockSubTitle = styled.p`
+export const SubTitle = styled.p`
   color: #5c5e62;
   padding-bottom: 20px;
   font-size: 15px;
@@ -46,7 +54,7 @@ export const HeaderBlockSubTitle = styled.p`
   }
 `;
 
-export const HeaderBlockButtons = styled.div`
+export const Buttons = styled.div`
   display: flex;
   gap: 30px;
   // height: 30%;
