@@ -34,6 +34,9 @@ export const Title = styled.h1`
   color: #393c41;
   padding: 4px 0;
   font-weight: 600;
+  @media only screen and (max-width: 600px) {
+    font-size: 36px;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -59,4 +62,9 @@ export const Buttons = styled.div`
   gap: 30px;
   // height: 30%;
   align-items: flex-end;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 `;

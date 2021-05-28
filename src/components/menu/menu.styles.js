@@ -24,6 +24,10 @@ export const MenuContainer = styled.div`
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
+
+  @media only screen and (max-width: 600px) {
+    min-width: 100%;
+  }
 `;
 
 export const Backface = styled.div`
