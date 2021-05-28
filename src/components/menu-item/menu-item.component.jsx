@@ -1,6 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { MenuItemContainer, LogoutButton } from "./menu-item.styles";
+import {
+  CustomLink,
+  ButtonAndLinkContainer,
+  ContainersLink,
+  LogoutButton,
+} from "./menu-item.styles";
 
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -14,18 +18,19 @@ const MenuItem = ({ text, to = "#" }) => {
   };
 
   return (
-    <MenuItemContainer>
+    <>
       {history.location.pathname === "/teslaaccount" &&
       text === "tesla account" ? (
         <>
-          <Link to={to}>
-            {text} <LogoutButton onClick={clickHandler}>Log out</LogoutButton>
-          </Link>
+          <ButtonAndLinkContainer>
+            <ContainersLink to={to}>{text}</ContainersLink>
+            <LogoutButton onClick={clickHandler}>Log out</LogoutButton>
+          </ButtonAndLinkContainer>
         </>
       ) : (
-        <Link to={to}>{text}</Link>
+        <CustomLink to={to}>{text}</CustomLink>
       )}
-    </MenuItemContainer>
+    </>
   );
 };
 export default MenuItem;

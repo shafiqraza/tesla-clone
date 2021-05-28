@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 const LinkStyles = css`
   text-decoration: none;
@@ -14,16 +15,24 @@ const LinkStyles = css`
   padding: 16px 10px;
 `;
 
-export const MenuItemContainer = styled.div`
-  & a {
-    ${LinkStyles}
-  }
+export const CustomLink = styled(Link)`
+  ${LinkStyles}
+`;
+
+export const ButtonAndLinkContainer = styled.div`
+  ${LinkStyles}
+`;
+
+export const ContainersLink = styled(Link)`
+  color: #333;
+  text-decoration: none;
 `;
 
 export const LogoutButton = styled.button`
   display: block;
   border: none;
   outline: none;
+  margin: 0;
   margin-top: 25px;
   font-size: 14px;
   font-weight: 500;
