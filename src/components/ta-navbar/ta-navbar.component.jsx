@@ -18,7 +18,7 @@ const TeslaNavbar = () => {
   const logout = () => {
     auth
       .signOut()
-      .then(() => dispatch(signOut))
+      .then(() => dispatch(signOut()))
       .catch((err) => console.log(`ERROR WHILE LOGGIN OUT ${err.message}`));
   };
   return (
