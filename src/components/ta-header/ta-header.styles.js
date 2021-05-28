@@ -43,6 +43,10 @@ export const HeaderLinks = styled.div`
   & a {
     ${BasisLinkStyles}
   }
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 export const HeaderRight = styled.div`
@@ -52,6 +56,10 @@ export const HeaderRight = styled.div`
 
   & a {
     ${BasisLinkStyles}
+
+    @media only screen and (max-width: 1100px) {
+      display: none;
+    }
   }
 `;
 
