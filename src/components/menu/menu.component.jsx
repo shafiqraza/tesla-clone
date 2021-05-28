@@ -81,6 +81,7 @@ const Menu = () => {
               <MenuItem text="test drive" />
               <MenuItem text="find us" />
               <MenuItem text="support" />
+              <MenuItem text="tesla account" to="/teslaaccount" />
               <MenuItem text="united states" />
             </MoreItems>
           ) : null}
