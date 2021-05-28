@@ -14,8 +14,8 @@ const BasisLinkStyles = css`
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 25px;
-  padding-top: 15px;
+  align-items: center;
+  padding: 12px 25px;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,25 +42,38 @@ export const HeaderLinks = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 15px;
+  align-items: center;
 
   & a {
     ${BasisLinkStyles}
+  }
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
   }
 `;
 
 export const HeaderRight = styled.div`
   display: flex;
-  align-items: flex-start;
   gap: 15px;
+  align-items: center;
 
   & a {
     ${BasisLinkStyles}
+    @media only screen and (max-width: 1100px) {
+      display: none;
+    }
   }
 `;
 
 export const HeaderMenu = styled.div`
+  display: flex;
+  align-items: center;
   cursor: pointer;
   position: relative;
   & .toggleMenu {
+    @media only screen and (max-width: 1100px) {
+      // margin-right: 10px;
+    }
   }
 `;

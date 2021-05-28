@@ -29,12 +29,12 @@ const Header = () => {
         <LogoImg src={logo} alt="tesla logo" />
       </LogoContainer>
       <HeaderLinks>
-        <Link to="/">Model S</Link>
-        <Link to="/">Model 3</Link>
-        <Link to="/">Model X</Link>
-        <Link to="/">Model Y</Link>
-        <Link to="/">Solar Roof</Link>
-        <Link to="/">Solar Panel</Link>
+        <Link to="#">Model S</Link>
+        <Link to="#">Model 3</Link>
+        <Link to="#">Model X</Link>
+        <Link to="#">Model Y</Link>
+        <Link to="#">Solar Roof</Link>
+        <Link to="#">Solar Panel</Link>
       </HeaderLinks>
       <HeaderRight isMenuOpen={isMenuOpen}>
         <Link to="/">Shop</Link>
