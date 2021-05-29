@@ -1,2 +1,2 @@
 export const selectUser = (state) => state.user;
-export const selectUserAuth = (state) => state.user.userAuth;
+export const selectUserAuth = (state) => state.user.currentUser;
