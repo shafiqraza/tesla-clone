@@ -1,5 +1,6 @@
 import React from "react";
 
+import { auth } from "../../firebase/firebase-utils";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../redux/user/user-slice";
 import {
@@ -15,7 +16,10 @@ const TeslaFooter = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
-    dispatch(signOut());
+    auth
+      .signOut()
+      .then(() => dispatch(signOut()))
+      .catch((err) => console.log(`ERROR WHILE LOGGIN OUT ${err.message}`));
   };
 
   const currentYear = () => new Date().getFullYear();
