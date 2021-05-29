@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useDispatch } from "react-redux";
+import { signOut } from "../../redux/user/user-slice";
 import {
   Footer,
   FooterBig,
@@ -10,6 +12,12 @@ import {
 } from "./ta-footer.styles";
 
 const TeslaFooter = () => {
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(signOut());
+  };
+
   const currentYear = () => new Date().getFullYear();
   return (
     <Footer>
@@ -38,7 +46,9 @@ const TeslaFooter = () => {
             <ItemLink to="#">Location</ItemLink>
           </ListItem>
           <ListItem>
-            <ItemLink to="#">Sign Out</ItemLink>
+            <ItemLink to="#" onClick={logout}>
+              Sign Out
+            </ItemLink>
           </ListItem>
         </FooterList>
       </FooterBig>
@@ -51,7 +61,9 @@ const TeslaFooter = () => {
             <ItemLink to="#">Privacy and legal</ItemLink>
           </ListItem>
           <ListItem>
-            <ItemLink to="#">Sign Out</ItemLink>
+            <ItemLink to="#" onClick={logout}>
+              Sign Out
+            </ItemLink>
           </ListItem>
         </FooterList>
       </FooterSmall>
