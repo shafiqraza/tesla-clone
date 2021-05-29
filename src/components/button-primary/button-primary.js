@@ -24,8 +24,23 @@ const buttonOrLinkStyles = css`
       ? `
         min-width: 200px;
         width: auto;
-        padding: 10px 20px;
-        font-size: 12px;`
+        padding: 8px 20px;
+        font-size: 12px; 
+        @media only screen and (max-width: 955px) {
+          min-width: 150px;
+          padding: 8px 10px;
+          font-size: 10px; 
+        }
+        @media only screen and (max-width: 670px) {
+          min-width: 120px;
+          padding: 5px 10px;
+          font-size: 8px; 
+        }
+        @media only screen and (max-width: 612px) {
+          font-size: 12px;
+          padding: 7px 20px;
+        }
+        `
       : ``}
 
   ${(props) =>
@@ -60,6 +75,10 @@ const buttonOrLinkStyles = css`
       background-color: #000;
       color: #fff;
 
+    }
+
+    @media only screen and (max-width: 955px) {
+      border: 2px solid #000;
     }
   `
       : ``};

@@ -5,6 +5,8 @@ import {
   ItemLeft,
   ItemTitle,
   ItemSubTitle,
+  ImageWrapperSmall,
+  ImageSmall,
   ItemButtons,
   ItemRight,
   ItemImage,
@@ -14,11 +16,13 @@ import ButtonPrimary from "../button-primary/button-primary.component";
 
 const TeslaMenuItem = ({ id, title, subTitle, image, buttons }) => {
   return (
-    <MenuItem>
+    <MenuItem id={id}>
       <ItemLeft>
         {title && <ItemTitle>{title}</ItemTitle>}
         {subTitle && <ItemSubTitle>{subTitle}</ItemSubTitle>}
-
+        <ImageWrapperSmall id={id}>
+          <ImageSmall src={image} alt={id} />
+        </ImageWrapperSmall>
         <ItemButtons>
           {buttons.map(({ id, text }) => (
             <ButtonPrimary medium btnBordered key={id}>

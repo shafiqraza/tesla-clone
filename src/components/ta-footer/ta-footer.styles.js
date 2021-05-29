@@ -9,12 +9,28 @@ export const Footer = styled.footer`
   align-items: center;
   margin-top: 80px;
 `;
+
+export const FooterBig = styled.div`
+  // display: flex;
+  // flex: 1;
+  @media only screen and (max-width: 612px) {
+    display: none;
+  }
+`;
+
+export const FooterSmall = styled.div`
+  @media only screen and (min-width: 612px) {
+    display: none;
+  }
+`;
+
 export const FooterList = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
   list-style-type: none;
   gap: 15px;
+  padding: 0;
 `;
 export const ListItem = styled.li``;
 export const ItemLink = styled(Link)`
