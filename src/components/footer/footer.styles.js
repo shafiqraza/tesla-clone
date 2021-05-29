@@ -7,7 +7,7 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
+  // margin-top: 80px;
 `;
 
 export const FooterBig = styled.div`
