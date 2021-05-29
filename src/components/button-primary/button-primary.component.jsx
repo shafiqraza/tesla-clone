@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonLink } from "./button-primary";
+import { Button } from "./button-primary";
 import { useHistory } from "react-router-dom";
 const ButtonPrimary = ({
   children,

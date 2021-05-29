@@ -1,5 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserAuth } from "../../redux/user/user-selectors";
 import { auth } from "../../firebase/firebase-utils";
 import { signOut } from "../../redux/user/user-slice";
 
@@ -14,7 +15,9 @@ import {
 
 const TeslaNavbar = () => {
   const dispatch = useDispatch();
-
+  const {
+    payload: { displayName },
+  } = useSelector(selectUserAuth);
   const logout = () => {
     auth
       .signOut()
@@ -23,7 +26,7 @@ const TeslaNavbar = () => {
   };
   return (
     <NavContainer>
-      <NavTitle>Dummy's Tesla</NavTitle>
+      <NavTitle>{displayName}'s Tesla</NavTitle>
       <Navbar>
         <NavbarList>
           <NavbarItem>

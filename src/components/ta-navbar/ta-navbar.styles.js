@@ -32,6 +32,7 @@ export const NavContainer = styled.div`
 export const NavTitle = styled.h1`
   font-weight: 500;
   flex: 1;
+  text-transform: capitalize;
   @media only screen and (max-width: 955px) {
     font-size: 18px;
   }

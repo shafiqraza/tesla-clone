@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     dispatch(closeMenu());
-  }, [location.pathname]);
+  }, [location.pathname, dispatch]);
 
   return (
     <div className="App">

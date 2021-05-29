@@ -6,7 +6,7 @@ import solarRoof from "../../images/solar-roof.jpg";
 import solarPanel from "../../images/solar-panel.jpg";
 import accessories from "../../images/accessories.jpg";
 
-export default [
+const cars = [
   {
     id: 0,
     title: "Model S",
@@ -81,7 +81,7 @@ export default [
       { id: 1, text: "order now", link: "#" },
       { id: 2, text: "learn more", link: "#" },
     ],
-    image: solarPanel,
+    image: solarRoof,
   },
   {
     id: 6,
@@ -90,3 +90,5 @@ export default [
     buttons: [{ id: 1, text: "order now", link: "#" }],
   },
 ];
+
+export default cars;

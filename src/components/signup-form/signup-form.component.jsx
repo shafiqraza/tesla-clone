@@ -25,20 +25,19 @@ const SignUpForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { email, password, firstName, lastName } = user;
-    const displayName = `${firstName} ${lastName}`;
+    const { email, password, lastName } = user;
+    const displayName = lastName;
 
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userAuth) => {
-        userAuth
+        userAuth.user
           .updateProfile({
             displayName,
           })
           .then(() => {
             const { email, uid } = userAuth.user;
-            console.log(userAuth.user);
-            const { displayName } = dispatch(
+            dispatch(
               signIn({
                 uid,
                 displayName,

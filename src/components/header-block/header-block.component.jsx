@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import ButtonPrimary from "../button-primary/button-primary.component";
 import {
