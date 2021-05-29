@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components/macro";
 
 const buttonOrLinkStyles = css`
-  min-width: 250px;
   width: 100%;
+  min-width: 250px;
   border-radius: 50px;
   border: none;
   outline: none;

@@ -15,6 +15,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 
   // position: fixed;
   // left: 50%;
@@ -66,5 +67,6 @@ export const Buttons = styled.div`
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
 `;
