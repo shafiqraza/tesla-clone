@@ -26,7 +26,7 @@ const TeslaNavbar = () => {
   };
   return (
     <NavContainer>
-      <NavTitle>{displayName}'s Tesla</NavTitle>
+      <NavTitle>{`${displayName}'s`} Tesla</NavTitle>
       <Navbar>
         <NavbarList>
           <NavbarItem>

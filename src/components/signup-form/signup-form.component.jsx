@@ -3,12 +3,16 @@ import React, { useState } from "react";
 import { Form } from "./signup-form.styles";
 import Input from "../form-input/form-input.component";
 import ButtonPrimary from "../button-primary/button-primary.component";
+import ErrorNotification from "../error-notification/error-notification.component";
 
 import { auth } from "../../firebase/firebase-utils";
 
-import { signIn } from "../../redux/user/user-slice";
+import { signIn, errorHandler } from "../../redux/user/user-slice";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+import { useSelector } from "react-redux";
+import { selectError } from "../../redux/user/user-selectors";
 
 const SignUpForm = () => {
   const [user, setUser] = useState({
@@ -19,6 +23,7 @@ const SignUpForm = () => {
   });
   const dispatch = useDispatch();
   const history = useHistory();
+  const { payload } = useSelector(selectError);
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
@@ -49,11 +54,21 @@ const SignUpForm = () => {
           });
       })
       .catch((err) => {
-        console.log(`ERROR WHILE SIGN UP - ${err.message}`);
+        dispatch(
+          errorHandler({
+            type: "signUp",
+            message: err.message,
+          })
+        );
       });
   };
   return (
     <Form onSubmit={handleSubmit}>
+      {payload ? (
+        payload.type === "signUp" ? (
+          <ErrorNotification message={payload.message} />
+        ) : null
+      ) : null}
       <Input
         type="text"
         name="firstName"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ButtonPrimary from "../button-primary/button-primary.component";
 import Input from "../form-input/form-input.component";
+import ErrorNotification from "../error-notification/error-notification.component";
 
 import {
   Form,
@@ -13,7 +14,10 @@ import {
 import { auth } from "../../firebase/firebase-utils";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signIn } from "../../redux/user/user-slice";
+import { signIn, errorHandler } from "../../redux/user/user-slice";
+
+import { useSelector } from "react-redux";
+import { selectError } from "../../redux/user/user-selectors";
 
 const LoginForm = () => {
   const [user, setUser] = useState({
@@ -23,7 +27,7 @@ const LoginForm = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-
+  const { payload } = useSelector(selectError);
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
@@ -39,10 +43,31 @@ const LoginForm = () => {
         );
         history.push("/teslaaccount");
       })
-      .catch((err) => console.log(`ERROR WHILE SIGIN - ${err.message}`));
+      .catch((err) => {
+        const errors = [
+          "There is no user record corresponding to this identifier. The user may have been deleted.",
+          "The password is invalid or the user does not have a password.",
+        ];
+
+        if (errors.includes(err.message)) {
+          dispatch(
+            errorHandler({
+              type: "signIn",
+              message:
+                "We don't recognize this email address and password combination",
+            })
+          );
+        }
+      });
   };
   return (
     <Form onSubmit={handleSubmit}>
+      {payload ? (
+        payload.type === "signIn" ? (
+          <ErrorNotification message={payload.message} />
+        ) : null
+      ) : null}
+
       <Input
         type="email"
         name="email"
