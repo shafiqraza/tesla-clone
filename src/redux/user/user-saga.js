@@ -25,10 +25,31 @@ function* signInSaga(action) {
   }
 }
 
+function* signUpSaga(action) {
+  const { displayName, email, password } = yield action.payload;
+  // console.log(displayName, email, password);
+  try {
+    const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+    yield user.updateProfile({ displayName });
+    yield put(signIn({ email, displayName, uid: user.uid }));
+  } catch (e) {
+    yield put(
+      errorHandler({
+        type: "signUp",
+        message: e.message,
+      })
+    );
+  }
+}
+
 function* onSignInStart() {
   yield takeLatest("user/signInStart", signInSaga);
 }
 
+function* onSignUpStart() {
+  yield takeLatest("user/signUpStart", signUpSaga);
+}
+
 export default function* userSagas() {
-  yield all([call(onSignInStart)]);
+  yield all([call(onSignInStart), call(onSignUpStart)]);
 }

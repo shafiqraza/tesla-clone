@@ -5,11 +5,8 @@ import Input from "../form-input/form-input.component";
 import ButtonPrimary from "../button-primary/button-primary.component";
 import ErrorNotification from "../error-notification/error-notification.component";
 
-import { auth } from "../../firebase/firebase-utils";
-
-import { signIn, errorHandler } from "../../redux/user/user-slice";
+import { signUpStart } from "../../redux/user/user-slice";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { selectError } from "../../redux/user/user-selectors";
@@ -21,47 +18,30 @@ const SignUpForm = () => {
     email: "",
     password: "",
   });
+
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const { payload } = useSelector(selectError);
+
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const { email, password, lastName } = user;
     const displayName = lastName;
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userAuth) => {
-        userAuth.user
-          .updateProfile({
-            displayName,
-          })
-          .then(() => {
-            const { email, uid } = userAuth.user;
-            dispatch(
-              signIn({
-                uid,
-                displayName,
-                email,
-              })
-            );
-
-            history.push("teslaaccount");
-          });
+    dispatch(
+      signUpStart({
+        email,
+        displayName,
+        password,
       })
-      .catch((err) => {
-        dispatch(
-          errorHandler({
-            type: "signUp",
-            message: err.message,
-          })
-        );
-      });
+    );
   };
+
   return (
     <Form onSubmit={handleSubmit}>
       {payload ? (
