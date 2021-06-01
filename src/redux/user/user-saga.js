@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { auth } from "../../firebase/firebase-utils";
-import { errorHandler, signIn } from "./user-slice";
+import { errorHandler, signIn, signOut } from "./user-slice";
 
 function* signInSaga(action) {
   const {
@@ -42,6 +42,16 @@ function* signUpSaga(action) {
   }
 }
 
+function* signOutSaga() {
+  yield console.log("signOutSaga");
+  try {
+    yield auth.signOut();
+    yield put(signOut());
+  } catch (e) {
+    yield put(errorHandler({ type: "signOut", message: e.message }));
+  }
+}
+
 function* onSignInStart() {
   yield takeLatest("user/signInStart", signInSaga);
 }
@@ -50,6 +60,10 @@ function* onSignUpStart() {
   yield takeLatest("user/signUpStart", signUpSaga);
 }
 
+function* onSignOutStart() {
+  yield takeLatest("user/signOutStart", signOutSaga);
+}
+
 export default function* userSagas() {
-  yield all([call(onSignInStart), call(onSignUpStart)]);
+  yield all([call(onSignInStart), call(onSignUpStart), call(onSignOutStart)]);
 }

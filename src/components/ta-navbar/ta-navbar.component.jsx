@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserAuth } from "../../redux/user/user-selectors";
 import { auth } from "../../firebase/firebase-utils";
-import { signOut } from "../../redux/user/user-slice";
+import { signOutStart } from "../../redux/user/user-slice";
 
 import {
   NavContainer,
@@ -19,10 +19,7 @@ const TeslaNavbar = () => {
     payload: { displayName },
   } = useSelector(selectUserAuth);
   const logout = () => {
-    auth
-      .signOut()
-      .then(() => dispatch(signOut()))
-      .catch((err) => console.log(`ERROR WHILE LOGGIN OUT ${err.message}`));
+    dispatch(signOutStart());
   };
   return (
     <NavContainer>

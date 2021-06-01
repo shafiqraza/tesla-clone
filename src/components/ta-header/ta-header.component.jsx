@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "../../firebase/firebase-utils";
-import { signOut } from "../../redux/user/user-slice";
+import { signOutStart } from "../../redux/user/user-slice";
 import { selectMenuIsOpen } from "../../redux/menu/menu-selectors";
 import { toggleMenu } from "../../redux/menu/menu-slice";
 
@@ -25,10 +24,7 @@ const TeslaAccountHeader = () => {
     dispatch(toggleMenu());
   };
   const logout = () => {
-    auth
-      .signOut()
-      .then(() => dispatch(signOut))
-      .catch((err) => console.log(`ERROR WHILE LOGGIN OUT ${err.message}`));
+    dispatch(signOutStart());
   };
   return (
     <HeaderContainer>

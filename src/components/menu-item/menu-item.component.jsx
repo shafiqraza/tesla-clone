@@ -8,13 +8,13 @@ import {
 
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signOut } from "../../redux/user/user-slice";
+import { signOutStart } from "../../redux/user/user-slice";
 const MenuItem = ({ text, to = "#" }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    dispatch(signOut());
+    dispatch(signOutStart());
   };
 
   return (

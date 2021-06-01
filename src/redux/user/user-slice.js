@@ -15,6 +15,7 @@ export const userSlice = createSlice({
       state.currentUser = payload;
       state.error = { type: null, message: null };
     },
+    signOutStart: () => {},
     signOut: (state) => {
       state.currentUser = null;
       state.error = { type: null, message: null };
@@ -25,7 +26,13 @@ export const userSlice = createSlice({
   },
 });
 
-export const { signUpStart, signInStart, signIn, signOut, errorHandler } =
-  userSlice.actions;
+export const {
+  signUpStart,
+  signInStart,
+  signIn,
+  signOutStart,
+  signOut,
+  errorHandler,
+} = userSlice.actions;
 
 export default userSlice.reducer;

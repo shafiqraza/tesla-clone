@@ -1,8 +1,7 @@
 import React from "react";
 
-import { auth } from "../../firebase/firebase-utils";
 import { useDispatch } from "react-redux";
-import { signOut } from "../../redux/user/user-slice";
+import { signOutStart } from "../../redux/user/user-slice";
 import {
   Footer,
   FooterBig,
@@ -16,10 +15,7 @@ const TeslaFooter = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
-    auth
-      .signOut()
-      .then(() => dispatch(signOut()))
-      .catch((err) => console.log(`ERROR WHILE LOGGIN OUT ${err.message}`));
+    dispatch(signOutStart());
   };
 
   const currentYear = () => new Date().getFullYear();
