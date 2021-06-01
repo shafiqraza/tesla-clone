@@ -11,10 +11,8 @@ import {
   HelpTextDivider,
 } from "./login-form.styles";
 
-import { auth } from "../../firebase/firebase-utils";
-import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signIn, errorHandler } from "../../redux/user/user-slice";
+import { signInStart } from "../../redux/user/user-slice";
 
 import { useSelector } from "react-redux";
 import { selectError } from "../../redux/user/user-selectors";
@@ -25,41 +23,19 @@ const LoginForm = () => {
     password: "",
   });
 
-  const history = useHistory();
   const dispatch = useDispatch();
   const { payload } = useSelector(selectError);
+
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(user.email, user.password)
-      .then((userAuth) => {
-        const { user } = userAuth;
-        dispatch(
-          signIn({ email: user.email, name: user.displayName, uid: user.uid })
-        );
-        history.push("/teslaaccount");
-      })
-      .catch((err) => {
-        const errors = [
-          "There is no user record corresponding to this identifier. The user may have been deleted.",
-          "The password is invalid or the user does not have a password.",
-        ];
-
-        if (errors.includes(err.message)) {
-          dispatch(
-            errorHandler({
-              type: "signIn",
-              message:
-                "We don't recognize this email address and password combination",
-            })
-          );
-        }
-      });
+    const { email, password } = user;
+    dispatch(signInStart({ email, password }));
   };
+
   return (
     <Form onSubmit={handleSubmit}>
       {payload ? (
