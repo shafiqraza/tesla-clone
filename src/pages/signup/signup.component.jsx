@@ -4,6 +4,7 @@ import SignInAndSignUpHeader from "../../components/signin-and-signup-header/sig
 import FormContainer from "../../components/form-container/form-container.component";
 import FormWrapper from "../../components/form-wrapper/form-wrapper.component";
 import SignUpForm from "../../components/signup-form/signup-form.component";
+import SignInAndSignUpFooter from "../../components/signin-and-signup-footer/signin-and-signup-footer.component";
 
 const SignUp = () => {
   return (
@@ -14,6 +15,7 @@ const SignUp = () => {
           <SignUpForm />
         </FormWrapper>
       </FormContainer>
+      <SignInAndSignUpFooter />
     </SignUpContainer>
   );
 };
