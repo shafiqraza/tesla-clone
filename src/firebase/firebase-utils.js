@@ -13,3 +13,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unregister = auth.onAuthStateChanged((user) => {
+      unregister();
+      resolve(user);
+    }, reject);
+  });
+};

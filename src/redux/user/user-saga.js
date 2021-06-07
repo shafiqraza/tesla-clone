@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { auth } from "../../firebase/firebase-utils";
+import { auth, getCurrentUser } from "../../firebase/firebase-utils";
 import { errorHandler, signIn, signOut } from "./user-slice";
 
 function* signInSaga(action) {
@@ -27,7 +27,6 @@ function* signInSaga(action) {
 
 function* signUpSaga(action) {
   const { displayName, email, password } = yield action.payload;
-  // console.log(displayName, email, password);
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield user.updateProfile({ displayName });
@@ -52,6 +51,31 @@ function* signOutSaga() {
   }
 }
 
+function* authCheckSaga(action) {
+  try {
+    const authUser = yield call(getCurrentUser);
+    if (authUser) {
+      const { displayName, email, uid } = yield authUser;
+      yield put(signIn(email, displayName, uid));
+    } else {
+      yield put(signOut());
+    }
+  } catch (e) {
+    yield put(
+      errorHandler({
+        type: "authCheck",
+        message: e.message,
+      })
+    );
+  }
+}
+
+// action listeners
+
+function* onAuthCheck() {
+  yield takeLatest("user/authCheck", authCheckSaga);
+}
+
 function* onSignInStart() {
   yield takeLatest("user/signInStart", signInSaga);
 }
@@ -65,5 +89,10 @@ function* onSignOutStart() {
 }
 
 export default function* userSagas() {
-  yield all([call(onSignInStart), call(onSignUpStart), call(onSignOutStart)]);
+  yield all([
+    call(onSignInStart),
+    call(onSignUpStart),
+    call(onSignOutStart),
+    call(onAuthCheck),
+  ]);
 }

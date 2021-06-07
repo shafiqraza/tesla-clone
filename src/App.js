@@ -7,28 +7,16 @@ import Home from "./pages/home/home.component";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUserAuth } from "./redux/user/user-selectors";
-import { signIn, signOut } from "./redux/user/user-slice";
+import { authCheck } from "./redux/user/user-slice";
 import { closeMenu } from "./redux/menu/menu-slice";
 
-import { auth } from "./firebase/firebase-utils";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUserAuth);
   const location = useLocation();
+
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        dispatch(
-          signIn({
-            id: user.uid,
-            email: user.email,
-            displayName: user.displayName,
-          })
-        );
-      } else {
-        dispatch(signOut());
-      }
-    });
+    dispatch(authCheck());
   }, [dispatch]);
 
   useEffect(() => {

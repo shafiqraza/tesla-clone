@@ -9,6 +9,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    authCheck: () => {},
     signInStart: () => {},
     signUpStart: () => {},
     signIn: (state, payload) => {
@@ -27,6 +28,7 @@ export const userSlice = createSlice({
 });
 
 export const {
+  authCheck,
   signUpStart,
   signInStart,
   signIn,

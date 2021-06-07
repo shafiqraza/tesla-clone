@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserAuth } from "../../redux/user/user-selectors";
-import { auth } from "../../firebase/firebase-utils";
 import { signOutStart } from "../../redux/user/user-slice";
 
 import {
